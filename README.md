@@ -1,9 +1,9 @@
 ---
 # EXPERIMENT 4: DATA WRANGLING AND DATA VISUALIZATION
 ---
-#### Name: Mallari, Lance Joseph N.
-#### Date Submitted: 09/18/2026
-#### Section: 2ECE-A
+### Name: Mallari, Lance Joseph N.
+### Date Submitted: 09/18/2026
+### Section: 2ECE-A
 ---
 ### I. Intended Learning Outcomes
 At the end of this laboratory activity, the student should be able to:
@@ -23,7 +23,7 @@ priate to the data.
 ---
 ### III. Programming Problems
 ---
-#### A. VISAYAS COMMUNICATION DATAFRAME
+### A. VISAYAS COMMUNICATION DATAFRAME
 Create a DataFrame named ***VisComm*** containing students whose ***Hometown is Visayas*** and whose ***Track
 is Communication***. Retain only these columns, in the stated order:
 ```
@@ -33,7 +33,7 @@ Display the resulting DataFrame and its number of rows. Both filtering condition
 the source dataset before the columns are selected.
 ---
 ## CODING:
-**Create the code needed for importing panda as pd for managing, and analyzing the datasets. Along with matplotlib.pyplot as plt to cr for the graph later in Problem C. In addition we also need to get the average and set up a column for it,**
+Create the code needed for importing panda as pd for managing, and analyzing the datasets. Along with matplotlib.pyplot as plt to cr for the graph later in Problem C. In addition we also need to get the average and set up a column for it.
 ```
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -48,7 +48,7 @@ if "Average" not in df.columns:
         axis=1
     )
 ```
-#### CODE FOR PART A:
+### CODE FOR PART A:
 ```
 # Filter Hometown == 'Visayas' and Track == 'Communication' before column selection
 VisComm = df[(df["Hometown"] == "Visayas") & (df["Track"] == "Communication")][
@@ -59,7 +59,7 @@ VisComm = df[(df["Hometown"] == "Visayas") & (df["Track"] == "Communication")][
 display(VisComm)
 print(f"Number of rows in VisComm: {len(VisComm)}")
 ```
-#### OUTPUT FOR PART A:
+### OUTPUT FOR PART A:
 ```
     Name	Gender	Math	Electronics	Average
 10	S11	    Female	48	    56	        54.75
@@ -70,11 +70,11 @@ print(f"Number of rows in VisComm: {len(VisComm)}")
 
 Number of rows in VisComm: 5
 ```
-#### METHODS USED FOR PART A:
+### METHODS USED FOR PART A:
 
-`VisComm = df[(df["Hometown"] == "Visayas") & (df["Track"] == "Communication")][["Name", "Gender", "Math", "Electronics", "Average"]]` : Uses element-wise logical AND (&) to filter rows matching both conditions before selecting the 5 required columns in order.
+
 ---
-#### B. VISAYAS FEMALE DATAFRAME
+### B. VISAYAS FEMALE DATAFRAME
 ```
 Name, Track, GEAS, Electronics, Average
 ```
