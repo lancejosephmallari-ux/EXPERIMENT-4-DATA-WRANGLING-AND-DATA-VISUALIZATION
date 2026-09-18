@@ -13,7 +13,7 @@ At the end of this laboratory activity, the student should be able to:
 4. communicate a data comparison using clear and correctly labeled plots.
 ---
 ### II. Instructions
-Use the same **ECE Board Exam 2** dataset supplied for Experiment 4. Work in a Jupyter Notebook using Pandas and a Python plotting library used in class. Use the dataset’s existing column labels, including *Name, Gender, Track, Hometown, Math, GEAS, Electronics, and Average.*
+Use the same ***ECE Board Exam 2*** dataset supplied for Experiment 4. Work in a Jupyter Notebook using Pandas and a Python plotting library used in class. Use the dataset’s existing column labels, including ***Name, Gender, Track, Hometown, Math, GEAS, Electronics, and Average.***
 - Derive all tables and plot values from the dataset. Do not manually type rows, category means, or
 plotted values.
 - When applying more than one condition, make every condition explicit in the filtering expression.
@@ -22,9 +22,52 @@ plotted values.
 priate to the data.
 ---
 ### III. Programming Problems
+---
 #### A. VISAYAS COMMUNICATION DATAFRAME
-Create a DataFrame named **VisComm** containing students whose **Hometown is Visayas** and whose **Track
-is Communication**. Retain only these columns, in the stated order:
+Create a DataFrame named ***VisComm*** containing students whose ***Hometown is Visayas*** and whose ***Track
+is Communication***. Retain only these columns, in the stated order:
 ```
 Name, Gender, Math, Electronics, Average
 ```
+---
+#### CODE FOR PART A:
+**Create the code needed for importing panda as pd for managing, and analyzing the datasets. Along with matplotlib.pyplot as plt to cr
+```
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Load dataset and clean column headers
+df = pd.read_csv("board2.csv")
+df.columns = df.columns.str.strip()
+
+# Calculate "Average" column if missing from the CSV
+if "Average" not in df.columns:
+    df["Average"] = df[["Math", "GEAS", "Electronics", "Communication"]].mean(
+        axis=1
+    )
+```
+#### OUTPUT FOR PART A:
+```
+<img width="523" height="344" alt="image" src="https://github.com/user-attachments/assets/57ebe962-96ba-487c-90a9-5de0bdd11f6f" />
+```
+Display the resulting DataFrame and its number of rows. Both filtering conditions must be applied to
+the source dataset before the columns are selected.
+#### B. VISAYAS FEMALE DATAFRAME
+```
+Name, Track, GEAS, Electronics, Average
+```
+Display ***VisFemale.*** Then display only the rows of ***VisFemale whose Average is at least 60***. ***DO NOT
+overwrite VisFemale*** when performing this second filter.
+#### C. CATEGORY-AVERAGE VISUALIZATION
+Examine how the recorded Average differs across the three categorical features Track, Gender, and
+Hometown.
+- a. For each feature, compute the mean of Average for every category using Pandas.
+- b. Display the three summary tables.
+- c. Create one figure containing three bar charts: mean Average by Track, by Gender, and by
+Hometown.
+- d. Below the figure, write three concise statements identifying the category with the highest sample
+mean for each feature.
+**Interpretation rule:** Describe the observed dataset only. A difference in group means does not, by
+itself, establish that a feature causes a higher board-exam score.
+### IV. Submission Requirements
+Submit one Jupyter Notebook file (.ipynb) containing your name and section, the two required DataFrames, the three category-mean summaries, the completed figure, and the three interpretation statements. All cells must be executed and the notebook must run from beginning to end without errors.
