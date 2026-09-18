@@ -23,3 +23,8 @@ priate to the data.
 ---
 ### III. Programming Problems
 #### A. VISAYAS COMMUNICATION DATAFRAME
+Create a DataFrame named **VisComm** containing students whose **Hometown is Visayas** and whose **Track
+is Communication**. Retain only these columns, in the stated order:
+```
+Name, Gender, Math, Electronics, Average
+```
