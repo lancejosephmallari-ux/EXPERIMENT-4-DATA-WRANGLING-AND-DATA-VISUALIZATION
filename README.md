@@ -30,8 +30,7 @@ is Communication***. Retain only these columns, in the stated order:
 Name, Gender, Math, Electronics, Average
 ```
 ---
-#### CODE FOR PART A:
-**Create the code needed for importing panda as pd for managing, and analyzing the datasets. Along with matplotlib.pyplot as plt to cr
+**Create the code needed for importing panda as pd for managing, and analyzing the datasets. Along with matplotlib.pyplot as plt to cr for the graph later in Problem C. In addition we also need to get the average and set up a column for it,**
 ```
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -46,6 +45,8 @@ if "Average" not in df.columns:
         axis=1
     )
 ```
+#### CODE FOR PART A:
+
 #### OUTPUT FOR PART A:
 ```
     Name	Gender	Math	Electronics	Average
