@@ -49,11 +49,11 @@ if "Average" not in df.columns:
 #### OUTPUT FOR PART A:
 ```
 Name	Gender	Math	Electronics	Average
-10	S11	Female	48	56	54.75
-11	S12	Male	89	67	76.00
-17	S18	Male	81	40	63.50
-21	S22	Female	64	39	62.50
-27	S28	Male	85	53	67.75
+10	S11	Female	48	    56	        54.75
+11	S12	Male	89	    67	        76.00
+17	S18	Male	81	    40	        63.50
+21	S22	Female	64   	39	        62.50
+27	S28	Male	85	    53	        67.75
 Number of rows in VisComm: 5
 ```
 Display the resulting DataFrame and its number of rows. Both filtering conditions must be applied to
