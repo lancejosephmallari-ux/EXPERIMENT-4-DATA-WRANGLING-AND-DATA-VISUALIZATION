@@ -23,6 +23,7 @@ priate to the data.
 ---
 ### III. Programming Problems
 ---
+
 ### A. VISAYAS COMMUNICATION DATAFRAME
 Create a DataFrame named ***VisComm*** containing students whose ***Hometown is Visayas*** and whose ***Track
 is Communication***. Retain only these columns, in the stated order:
@@ -31,6 +32,7 @@ Name, Gender, Math, Electronics, Average
 ```
 Display the resulting DataFrame and its number of rows. Both filtering conditions must be applied to
 the source dataset before the columns are selected.
+
 ---
 ## CODING:
 Create the code needed for importing panda as pd for managing, and analyzing the datasets. Along with matplotlib.pyplot as plt to cr for the graph later in Problem C. In addition we also need to get the average and set up a column for it.
