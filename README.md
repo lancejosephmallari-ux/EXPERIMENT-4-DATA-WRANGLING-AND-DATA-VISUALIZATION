@@ -14,7 +14,6 @@ At the end of this laboratory activity, the student should be able to:
 ---
 ### I. Instructions
 Use the same **ECE Board Exam 2** dataset supplied for Experiment 4. Work in a Jupyter Notebook using Pandas and a Python plotting library used in class. Use the dataset’s existing column labels, including *Name, Gender, Track, Hometown, Math, GEAS, Electronics, and Average.*
-
 • Derive all tables and plot values from the dataset. Do not manually type rows, category means, or
 plotted values.
 • When applying more than one condition, make every condition explicit in the filtering expression.
