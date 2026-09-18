@@ -2,9 +2,7 @@
 # EXPERIMENT 4: DATA WRANGLING AND DATA VISUALIZATION
 ---
 Name: Mallari, Lance Joseph N.
-
-Date Submitted: 09/18/2026
-
+\n Date Submitted: 09/18/2026
 Section: 2ECE-A
 ---
 ### I. Intended Learning Outcomes
