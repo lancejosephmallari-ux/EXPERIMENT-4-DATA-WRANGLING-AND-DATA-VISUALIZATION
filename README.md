@@ -48,7 +48,13 @@ if "Average" not in df.columns:
 ```
 #### OUTPUT FOR PART A:
 ```
-<img width="523" height="344" alt="image" src="https://github.com/user-attachments/assets/57ebe962-96ba-487c-90a9-5de0bdd11f6f" />
+Name	Gender	Math	Electronics	Average
+10	S11	Female	48	56	54.75
+11	S12	Male	89	67	76.00
+17	S18	Male	81	40	63.50
+21	S22	Female	64	39	62.50
+27	S28	Male	85	53	67.75
+Number of rows in VisComm: 5
 ```
 Display the resulting DataFrame and its number of rows. Both filtering conditions must be applied to
 the source dataset before the columns are selected.
