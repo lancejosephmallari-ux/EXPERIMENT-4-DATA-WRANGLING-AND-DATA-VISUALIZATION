@@ -29,7 +29,10 @@ is Communication***. Retain only these columns, in the stated order:
 ```
 Name, Gender, Math, Electronics, Average
 ```
+Display the resulting DataFrame and its number of rows. Both filtering conditions must be applied to
+the source dataset before the columns are selected.
 ---
+## CODING:
 **Create the code needed for importing panda as pd for managing, and analyzing the datasets. Along with matplotlib.pyplot as plt to cr for the graph later in Problem C. In addition we also need to get the average and set up a column for it,**
 ```
 import matplotlib.pyplot as plt
@@ -46,7 +49,16 @@ if "Average" not in df.columns:
     )
 ```
 #### CODE FOR PART A:
+```
+# Filter Hometown == 'Visayas' and Track == 'Communication' before column selection
+VisComm = df[(df["Hometown"] == "Visayas") & (df["Track"] == "Communication")][
+    ["Name", "Gender", "Math", "Electronics", "Average"]
+]
 
+# Display DataFrame and row count
+display(VisComm)
+print(f"Number of rows in VisComm: {len(VisComm)}")
+```
 #### OUTPUT FOR PART A:
 ```
     Name	Gender	Math	Electronics	Average
@@ -58,8 +70,10 @@ if "Average" not in df.columns:
 
 Number of rows in VisComm: 5
 ```
-Display the resulting DataFrame and its number of rows. Both filtering conditions must be applied to
-the source dataset before the columns are selected.
+#### METHODS USED FOR PART A:
+
+`VisComm = df[(df["Hometown"] == "Visayas") & (df["Track"] == "Communication")][["Name", "Gender", "Math", "Electronics", "Average"]]` : Uses element-wise logical AND (&) to filter rows matching both conditions before selecting the 5 required columns in order.
+---
 #### B. VISAYAS FEMALE DATAFRAME
 ```
 Name, Track, GEAS, Electronics, Average
