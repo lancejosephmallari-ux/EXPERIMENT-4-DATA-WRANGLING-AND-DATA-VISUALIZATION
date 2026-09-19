@@ -73,7 +73,9 @@ print(f"Number of rows in VisComm: {len(VisComm)}")
 Number of rows in VisComm: 5
 ```
 ### METHODS USED FOR PART A:
-
+- `VisComm = df[(df["Hometown"] == "Visayas") & (df["Track"] == "Communication")][["Name", "Gender", "Math", "Electronics", "Average"]]`: Uses element-wise logical AND (&) to filter rows matching both conditions before selecting the 5 required columns in order.
+- `display(VisComm)`: Renders VisComm as a formatted Jupyter table.
+- `print(f"Number of rows in VisComm: {len(VisComm)}")`: Measures and prints total row count using `len()`
 
 ---
 ### B. VISAYAS FEMALE DATAFRAME
@@ -82,6 +84,47 @@ Name, Track, GEAS, Electronics, Average
 ```
 Display ***VisFemale.*** Then display only the rows of ***VisFemale whose Average is at least 60***. ***DO NOT
 overwrite VisFemale*** when performing this second filter.
+
+### CODE FOR PART B:
+```
+# Filter Hometown == 'Visayas' and Gender == 'Female' before column selection
+VisFemale = df[(df["Hometown"] == "Visayas") & (df["Gender"] == "Female")][
+    ["Name", "Track", "GEAS", "Electronics", "Average"]
+]
+
+# Display VisFemale
+print(" VisFemale DataFrame ")
+display(VisFemale)
+
+# Display rows where Average is at least 60 without overwriting VisFemale
+print("\n VisFemale Students with Average >= 60 ")
+vis_female_passed = VisFemale[VisFemale["Average"] >= 60]
+display(vis_female_passed)
+```
+### OUTPUT FOR PART B:
+```
+ VisFemale DataFrame 
+Name	  Track	            GEAS   Electronics	Average
+5	S6	  Microelectronics	86	   45	        75.50
+10	S11	  Communication	    48	   56       	54.75
+20	S21	  Microelectronics	68     51	        68.50
+21	S22	  Communication  	89	   39        	62.50
+23	S24	  Microelectronics	60	   45	        57.75
+25	S26   Instrumentation	83	   47       	65.75
+
+ VisFemale Students with Average >= 60 
+Name	Track	           GEAS	 Electronics	Average
+5	S6	Microelectronics	86	 45         	75.50
+20	S21	Microelectronics	68	 51	            68.50
+21	S22	Communication    	89	 39         	62.50
+25	S26	Instrumentation	    83	 47         	65.75
+```
+### METHODS USED FOR PART B:
+- `VisFemale = df[(df["Hometown"] == "Visayas") & (df["Gender"] == "Female")][["Name", "Track", "GEAS", "Electronics", "Average"]]`: Filters students where Hometown is Visayas and Gender is Female, retaining specified columns.
+- `display(VisFemale)`: Displays the full VisFemale table.
+- `vis_female_passed = VisFemale[VisFemale["Average"] >= 60]`: Applies a numerical filter (Average >= 60) assigned to a new variable so VisFemale remains unmodified.
+- `display(vis_female_passed)`: Displays the subset of passing female students from Visayas.
+
 #### C. CATEGORY-AVERAGE VISUALIZATION
 Examine how the recorded Average differs across the three categorical features Track, Gender, and
 Hometown.
@@ -93,5 +136,88 @@ Hometown.
 mean for each feature.
 **Interpretation rule:** Describe the observed dataset only. A difference in group means does not, by
 itself, establish that a feature causes a higher board-exam score.
+
+### CODE FOR PART C:
+```
+# a & b. Compute and display category means
+track_avg = df.groupby("Track", as_index=False)["Average"].mean()
+gender_avg = df.groupby("Gender", as_index=False)["Average"].mean()
+hometown_avg = df.groupby("Hometown", as_index=False)["Average"].mean()
+
+print(" [Summary Table: Mean Average by Track] ")
+display(track_avg)
+
+print("\n [Summary Table: Mean Average by Gender] ")
+display(gender_avg)
+
+print("\n [Summary Table: Mean Average by Hometown] ")
+display(hometown_avg)
+
+# c. Create one figure containing three bar charts
+fig, axes = plt.subplots(1, 3, figsize=(16, 5), sharey=True)
+
+# Bar plot 1: Track
+axes[0].bar(
+    track_avg["Track"],
+    track_avg["Average"],
+    color="#4C72B0",
+    edgecolor="black",
+)
+axes[0].set_title("Mean Average by Track", fontweight="bold")
+axes[0].set_xlabel("Track")
+axes[0].set_ylabel("Mean Average Score")
+axes[0].grid(axis="y", linestyle="--", alpha=0.7)
+
+# Bar plot 2: Gender
+axes[1].bar(
+    gender_avg["Gender"],
+    gender_avg["Average"],
+    color="#DD8452",
+    edgecolor="black",
+)
+axes[1].set_title("Mean Average by Gender", fontweight="bold")
+axes[1].set_xlabel("Gender")
+axes[1].grid(axis="y", linestyle="--", alpha=0.7)
+
+# Bar plot 3: Hometown
+axes[2].bar(
+    hometown_avg["Hometown"],
+    hometown_avg["Average"],
+    color="#55A868",
+    edgecolor="black",
+)
+axes[2].set_title("Mean Average by Hometown", fontweight="bold")
+axes[2].set_xlabel("Hometown")
+axes[2].grid(axis="y", linestyle="--", alpha=0.7)
+
+plt.suptitle(
+    "ECE Board Exam: Category-Average Comparison",
+    fontsize=14,
+    fontweight="bold",
+)
+plt.tight_layout()
+plt.show()
+```
+### OUTPUT FOR PART C:
+```
+ [Summary Table: Mean Average by Track] 
+Track	Average
+0	Communication	67.975
+1	Instrumentation	65.225
+2	Microelectronics	67.500
+
+ [Summary Table: Mean Average by Gender] 
+Gender	Average
+0	Female	66.616667
+1	Male	67.183333
+
+ [Summary Table: Mean Average by Hometown] 
+Hometown	Average
+0	Luzon	68.083333
+1	Mindanao	66.678571
+2	Visayas	65.750000
+
+```
+
 ### IV. Submission Requirements
 Submit one Jupyter Notebook file (.ipynb) containing your name and section, the two required DataFrames, the three category-mean summaries, the completed figure, and the three interpretation statements. All cells must be executed and the notebook must run from beginning to end without errors.
