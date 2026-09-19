@@ -217,7 +217,10 @@ Hometown	Average
 1	Mindanao	66.678571
 2	Visayas	65.750000
 
+
+
 ```
+<img width="1716" height="554" alt="image" src="https://github.com/user-attachments/assets/ef2b0b88-405e-46a5-bc1a-5977f3541fcc" />
 
 ### IV. Submission Requirements
 Submit one Jupyter Notebook file (.ipynb) containing your name and section, the two required DataFrames, the three category-mean summaries, the completed figure, and the three interpretation statements. All cells must be executed and the notebook must run from beginning to end without errors.
