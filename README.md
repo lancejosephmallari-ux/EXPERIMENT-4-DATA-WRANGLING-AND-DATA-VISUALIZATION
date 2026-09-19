@@ -216,11 +216,37 @@ Hometown	Average
 0	Luzon	68.083333
 1	Mindanao	66.678571
 2	Visayas	65.750000
-
-
-
 ```
 <img width="1716" height="554" alt="image" src="https://github.com/user-attachments/assets/ef2b0b88-405e-46a5-bc1a-5977f3541fcc" />
+
+### METHODS USED FOR PART B:
+***Data Aggregation (Group Means)***
+- `track_avg = df.groupby("Track", as_index=False)["Average"].mean()`: Groups rows by Track category and computes the mean Average score for each track. Setting as_index=False ensures Track remains a standard column rather than becoming the row index.
+- gender_avg = df.groupby("Gender", as_index=False)["Average"].mean(): Groups data by Gender to calculate mean scores for female and male categories.
+-hometown_avg = df.groupby("Hometown", as_index=False)["Average"].mean(): Groups data by regional Hometown (Luzon, Visayas, Mindanao) to compute regional mean averages.
+
+***Displaying Summary Output***
+- print("--- Summary: ... ---"): Outputs styled headers in the console to separate each category's results.
+- display(track_avg), display(gender_avg), display(hometown_avg): Formats and displays each aggregated pandas DataFrame as a clean table inside the Jupyter environment.
+  
+***Figure Setup & Subplot Layout***
+- fig, axes = plt.subplots(1, 3, figsize=(16, 5), sharey=True): Initializes a 1x3 grid of subplots within a single figure container sized 16 by 5 inches. Setting sharey=True forces all three charts to use identical vertical axis limits for accurate visual comparison.
+- 
+***Plotting Bar Charts***
+- axes[0].bar(track_avg["Track"], track_avg["Average"], color="#4C72B0", edgecolor="black"): Draws vertical bars on the first subplot (axes[0]) showing mean scores per academic track with custom color fill and black borders.
+- axes[1].bar(...) & axes[2].bar(...): Plots corresponding bar charts on the second (axes[1]) and third (axes[2]) subplots for Gender and Hometown data using distinct colors.
+
+***Axis Labeling & Grid Alignment***
+- axes[0].set_title("...", fontweight="bold"): Applies bold sub-titles to individual plot panels.
+- axes[0].set_xlabel(...) & axes[0].set_ylabel(...): Configures horizontal and vertical axis labels for clear category identification.
+- axes[0].grid(axis="y", linestyle="--", alpha=0.7): Adds horizontal dashed gridlines at 70% opacity to help read bar height values accurately.
+
+***Final Figure Rendering***
+- plt.suptitle("ECE Board Exam: Category-Average Comparison", fontsize=14, fontweight="bold"): Places a centered main super-title across the top of the combined figure.
+- plt.tight_layout(): Automatically adjusts padding between subplots to eliminate overlapping text and clipped labels.
+- plt.show(): Renders and embeds the completed graphic directly within the notebook output cell.
+
+---
 
 ### IV. Submission Requirements
 Submit one Jupyter Notebook file (.ipynb) containing your name and section, the two required DataFrames, the three category-mean summaries, the completed figure, and the three interpretation statements. All cells must be executed and the notebook must run from beginning to end without errors.
